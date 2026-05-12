@@ -1,0 +1,47 @@
+SELECT * 
+FROM sakila.`online-store-orders.cleaned`;
+
+SELECT product, SUM(QUANTITY) AS total_sold
+FROM sakila.`online-store-orders.cleaned`
+GROUP BY Product;
+
+SELECT Product,
+       SUM(Quantity) AS total_volume,
+       SUM(Quantity * UnitPrice) AS total_revenue
+FROM sakila.`online-store-orders.cleaned`
+GROUP BY Product
+ORDER BY total_revenue DESC;
+
+
+SELECT Product,
+       SUM(Quantity) AS total_volume,
+       SUM(Quantity * UnitPrice) AS total_revenue
+FROM sakila.`online-store-orders.cleaned`
+GROUP BY Product
+ORDER BY total_revenue DESC;
+
+
+
+
+SELECT Product,
+       SUM(Quantity) AS total_units,
+       SUM(Quantity * UnitPrice) AS total_revenue
+FROM sakila.`online-store-orders.cleaned`
+WHERE OrderStatus IN ('Shipped', 'Delivered')
+GROUP BY Product
+ORDER BY total_units DESC;
+
+SELECT Product,
+       OrderStatus,
+       COUNT(*) AS order_count,
+       ROUND(
+         COUNT(*) * 100.0 / 
+         (SELECT COUNT(*) 
+          FROM  sakila.`online-store-orders.cleaned`
+          WHERE sakila.`online-store-orders.cleaned`.Product),
+         2
+       ) AS status_percentage
+FROM sakila.`online-store-orders.cleaned`
+GROUP BY Product, OrderStatus
+ORDER BY Product, status_percentage DESC;
+
