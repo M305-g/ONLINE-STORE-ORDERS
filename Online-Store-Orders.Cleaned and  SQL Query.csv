@@ -1,0 +1,33 @@
+SELECT *
+ FROM sakila.`online-store-orders.cleaned`;
+ 
+ SELECT Product,
+       SUM(Quantity) AS total_volume
+FROM sakila.`online-store-orders.cleaned`
+GROUP BY Product
+ORDER BY total_volume DESC;
+
+SELECT Product,
+       OrderStatus,
+       COUNT(*) AS total_orders,
+       SUM(Quantity) AS total_quantity,
+       SUM(Quantity * UnitPrice) AS total_revenue
+FROM sakila.`online-store-orders.cleaned`
+GROUP BY Product, OrderStatus
+ORDER BY Product, total_revenue DESC;
+
+SELECT Product,
+       ReferralSource,
+       COUNT(*) AS total_orders,
+       SUM(Quantity) AS total_quantity,
+       SUM(Quantity * UnitPrice) AS total_revenue,
+       ROUND(
+         (SUM(Quantity * UnitPrice) * 100.0) /
+         SUM(SUM(Quantity * UnitPrice)) OVER (PARTITION BY Product),
+         2
+       ) AS revenue_percentage
+FROM sakila.`online-store-orders.cleaned`
+GROUP BY Product, ReferralSource
+ORDER BY Product, revenue_percentage DESC;
+
+
