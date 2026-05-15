@@ -1,22 +1,22 @@
 # ONLINE-STORE-ORDERS
 OVERVIEW
 
-This project analyzes customer orders from online store to uncover sales trends, and products performance. It includes data cleaning by Excel, Sql queries and Tableau dashboard for visualizations to support business.
+This project demostrates end to end analytics skills.Excel for cleaning, SQL for querying and Tableau for visualization 
 
 
-OBJECTIVES
+## Objectives
 
 -Clean and organize raw datasets
 
 -Analyze sales performance
 
--Identify top selling products
+-Identify top selling products that helps to optimize marketing strategy
 
 -Referral source that generate high income
 
 -Create interactive dashboards for business insights
 
-TOOLS USED
+## Tools Used
 
 Excel - Data cleaning and processing
 
@@ -25,7 +25,7 @@ SQL   - Data querying and analysis
 Tableau - Data visualization and dashboard creation
 
 
-DATASET SOURCE
+## Data source
 
 Dataset obtained from kaggle for educational and analytical purposes
 
@@ -59,9 +59,9 @@ The data sets include
 
 -Total Price
 
-## DATA CLEANING PROCESS IN EXCEL
+## Data cleaning process by Excel
 
-The following task were performed 
+Task were performed 
 
 -Removed duplicate records
 
@@ -80,6 +80,22 @@ Sql was used for
 -Analyze the order status of each product
 
 -Which referral source generate high revenue
+
+## Tableau Dashboard
+
+An interactive dashboard was created in tableau to  visualize
+
+- Total revenue to each product
+
+- Order status distribution by product
+
+- 95th percentile of trannsaction value
+
+- Referral source of each product and its total and percentage
+
+  ## KEY INSIGTHTS
+
+
 
 
 -
